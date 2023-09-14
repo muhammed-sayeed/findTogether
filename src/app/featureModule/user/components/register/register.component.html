@@ -1,0 +1,124 @@
+<p>register works!</p>
+<div class="container">
+    <form action="" class="form" (submit)="submit()" [formGroup]="form">
+        <div class="header">SIGN-UP</div>
+        <div class="covering">
+            <div class="inner">
+                <div class="group">
+                    <div class="finp">
+                        <label for="">Fname</label>
+                        <div class="inpdiv">
+                            <input formControlName="fname" class="inp" type="text" />
+                        </div>
+                        <div *ngIf="form.get('fname')?.invalid && form.get('fname')?.touched">
+                            <div *ngIf="form.get('fname')?.errors?.['required']" style="color: red;">FirstName required</div>
+                            <div *ngIf="form.get('fname')?.errors?.['minlength']" style="color: red;">minimum 5 charecter required</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <div class="finp">
+                        <label for="">Lname</label>
+                        <div class="inpdiv">
+                            <input formControlName="lname" class="inp" type="text" />
+                        </div>
+                        <div *ngIf="form.get('lname')?.invalid && form.get('lname')?.touched">
+                            <div *ngIf="form.get('lname')?.errors?.['required']" style="color: red;">LastName required</div>
+                            <div *ngIf="form.get('lname')?.errors?.['maxlength']" style="color: red;">maximum 6 charecter</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="group">
+                    <div class="finp">
+                        <label for="">E-mail</label>
+                        <div class="inpdiv">
+                            <input formControlName="email" class="inp" type="text" />
+                        </div>
+                        <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+                            <div *ngIf="form.get('email')?.errors?.['required']" style="color: red;">E-mail required</div>
+                            <div *ngIf="form.get('email')?.errors?.['email']" style="color: red;">Enter valid email</div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="finp">
+                        <label for="">Phone</label>
+                        <div class="inpdiv">
+                            <input formControlName="phone" class="inp" type="text" />
+                        </div>
+                        <div *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched">
+                            <div *ngIf="form.get('phone')?.errors?.['required']" style="color: red;">Phone Number required</div>
+                            <div *ngIf="form.get('phone')?.errors?.['maxlength']" style="color: red;">Enter valid number</div>
+                            <div *ngIf="form.get('phone')?.errors?.['minlength']" style="color: red;">Enter valid number</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="groupG">
+                    <div class="finpG">
+                        <label for="">Gender</label>
+                        <div class="inpdivG">
+                            <div>
+                                <label for="">Male</label>
+                                <input formControlName="gender" value="male" type="radio" name="" id="" />
+                            </div>
+                            <div>
+                                <label for="">Female</label>
+                                <input formControlName="gender" value="female" type="radio" name="" id="" />
+                            </div>
+                            <div>
+                                <label for="">Others</label>
+                                <input formControlName="gender" value="others" type="radio" name="" id="" />
+                            </div>
+                        </div>
+                        <div *ngIf="form.get('gender')?.invalid && form.get('gender')?.touched">
+                            <div *ngIf="form.get('gender')?.errors?.['required']" style="color: red;">Select one</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="group">
+                    <div class="finp">
+                        <label for="">Password</label>
+                        <div class="inpdiv">
+                            <input formControlName="password" class="inp" type="password" />
+                        </div>
+                        <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+                            <div *ngIf="form.get('password')?.errors?.['required']" style="color: red;">Password required</div>
+                            <div *ngIf="form.get('password')?.errors?.['minlength']" style="color: red;">minimum 6 charecter required</div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="finp">
+                        <label for="">Conform Password</label>
+                        <div class="inpdiv">
+                            <input formControlName="repassword" class="inp" type="password" />
+                        </div>
+                        <div *ngIf="form.get('repassword')?.invalid && form.get('repassword')?.touched">
+                            <div *ngIf="form.get('repassword')?.errors?.['required']" style="color: red;">conform your password</div>
+                            <div *ngIf="form.get('repassword')?.hasError('password')" style="color: red;">Passwords do not match</div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="submitdiv">
+            <button class="submit" [disabled]="formValid && form.invalid"  >Submit</button>
+        </div>
+    </form>
+</div>
